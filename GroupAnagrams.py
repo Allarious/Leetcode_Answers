@@ -48,10 +48,6 @@ class GroupAnagramsOptimal:
             array = [0] * 26
             for c in s:
                 array[ord(c) - base_ascii] += 1
-            # val = hashmap.get(tuple(array))
-            # if val is None:
-            #     hashmap[tuple(array)] = [s]
-            # else:
             hashmap[tuple(array)].append(s)
 
         return hashmap.values()
