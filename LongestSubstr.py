@@ -7,21 +7,22 @@ class LongestSubStr:
         elif length == 1:
             return 1
         max_length = 1
-        hashmap = {s[0]: True}
+        hashmap = {s[0]: 0}
         i = 0
         j = 0
         while j < length:
             if j - i > max_length:
                 max_length = j - i
 
-            if i >= j or not hashmap.get(s[j]):
-                hashmap[s[j]] = True
+            if i >= j or hashmap.get(s[j]) is None or hashmap.get(s[j]) < i:
+                hashmap[s[j]] = j
                 j += 1
             else:
+                tmp = hashmap[s[i]]
                 hashmap[s[i]] = None
-                i += 1
+                i = tmp + 1
 
         return max(max_length, j - i)
 
 if __name__ == "__main__":
-    print(LongestSubStr().length_of_longest_substring("pwwkew"))
+    print(LongestSubStr().length_of_longest_substring("bbbb"))
