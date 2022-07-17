@@ -25,8 +25,6 @@ class GroupAnagramsNotOptimal:
 
         return group_anagrams
 
-
-
     def _return_word_hashmap(self, s: str):
         hashmap = {}
 
